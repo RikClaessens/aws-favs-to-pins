@@ -34,11 +34,19 @@ function createPinsFromFavs() {
 
   for (li of favs) {
     const favService = li.firstChild;
+    const serviceName = favService.childNodes[1].textContent;
     favService.removeChild(favService.childNodes[1]);
+    favService.removeAttribute("title");
 
     let pin = document.createElement("div");
     pin.className = "pin-style";
+
+    const tooltip = document.createElement("span");
+    tooltip.className = "tooltip";
+    tooltip.append(document.createTextNode(serviceName));
+
     pin.append(favService);
+    pin.append(tooltip);
 
     pins.push(pin);
   }

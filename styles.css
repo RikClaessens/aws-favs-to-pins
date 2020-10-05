@@ -1,7 +1,35 @@
 .pin-style {
-    text-decoration: none !important;
-    color: #fff !important;
-    font-family: "Amazon Ember","Helvetica Neue",Roboto,Arial,sans-serif;
-    font-size: 12px;
-    cursor: pointer;
+  text-decoration: none !important;
+  color: #fff !important;
+  font-family: "Amazon Ember", "Helvetica Neue", Roboto, Arial, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+}
+
+.pin-style a i {
+  border-radius: 5px;
+}
+
+.pin-style a {
+  padding-right: 4px;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 36px;
+  /* prettify */
+  padding: 0.5em;
+  color: #f2f2f2;
+  background: #232f3e;
+  /* border: 0.1em solid #ff9900; */
+  /* round the corners */
+  border-radius: 0.5em;
+  /* prevent too wide tooltip */
+  max-width: 10em;
+}
+
+.pin-style:hover .tooltip {
+  display: block;
 }
