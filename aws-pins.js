@@ -1,59 +1,57 @@
-
 // ------- Main Driver Begins ---------
 
 /*
-* Check regularly until the required div appears on the page
-*/
+ * Check regularly until the required div appears on the page
+ */
 var checkExist = setInterval(function () {
-    if (document.querySelector('div[data-testid="favorites-container"]')) {
-        const pins = createPinsFromFavs();
-        addPinsToHeader(pins);
-        clearInterval(checkExist);
-    }
+  if (document.querySelector('div[data-testid="favorites-container"]')) {
+    const pins = createPinsFromFavs();
+    addPinsToHeader(pins);
+    clearInterval(checkExist);
+  }
 }, 100);
 // ------- Main Driver Ends -----------
 
 /*
-* Given an array of pins, appends each of them to nav header
-*/
+ * Given an array of pins, appends each of them to nav header
+ */
 function addPinsToHeader(pins) {
-    for (pin of pins) {
-        const header = document.getElementById('awsc-nav-header').firstChild;
-        header.append(pin);
-    }
+  for (pin of pins) {
+    const header = document.getElementById("awsc-nav-header").firstChild;
+    header.append(pin);
+  }
 }
 
 /*
-* Iterate over favorites list elements
-* and create divs for the pins. Each div contains an anchor 
-* that navigates to respective AWS service.
-* Only adds first 7 fav services as pins
-*/
+ * Iterate over favorites list elements
+ * and create divs for the pins. Each div contains an anchor
+ * that navigates to respective AWS service.
+ * Only adds first 7 fav services as pins
+ */
 function createPinsFromFavs() {
-    const favs = getAllFavs()
-    let pins = []
+  const favs = getAllFavs();
+  let pins = [];
 
-    for (li of favs) {
-        const favService = li.firstChild;
+  for (li of favs) {
+    const favService = li.firstChild;
+    favService.removeChild(favService.childNodes[1]);
 
-        let pin = document.createElement("div");
-        pin.className = "pin-style"
-        pin.append(favService);
+    let pin = document.createElement("div");
+    pin.className = "pin-style";
+    pin.append(favService);
 
-        if (pins.length < 7) {
-            pins.push(pin)
-        } else {
-            break;
-        }
-    };
-    return pins;
+    pins.push(pin);
+  }
+  return pins;
 }
 
 /*
-* Clones favorite services from the menu
-* Returns an array of li elements
-*/
+ * Clones favorite services from the menu
+ * Returns an array of li elements
+ */
 function getAllFavs() {
-    const favContainer = document.querySelector('div[data-testid="favorites-container"]').firstChild.cloneNode(true);
-    return favContainer.getElementsByTagName('li');
+  const favContainer = document
+    .querySelector('div[data-testid="favorites-container"]')
+    .firstChild.cloneNode(true);
+  return favContainer.getElementsByTagName("li");
 }
