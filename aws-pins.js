@@ -16,18 +16,12 @@ var checkExist = setInterval(function () {
  * Given an array of pins, appends each of them to nav header
  */
 function addPinsToHeader(pins) {
+  const header = document.getElementById("awsc-nav-header").firstChild;
   for (pin of pins) {
-    const header = document.getElementById("awsc-nav-header").firstChild;
     header.append(pin);
   }
 }
 
-/*
- * Iterate over favorites list elements
- * and create divs for the pins. Each div contains an anchor
- * that navigates to respective AWS service.
- * Only adds first 7 fav services as pins
- */
 function createPinsFromFavs() {
   const favs = getAllFavs();
   let pins = [];
@@ -39,10 +33,10 @@ function createPinsFromFavs() {
     favService.removeAttribute("title");
 
     let pin = document.createElement("div");
-    pin.className = "pin-style";
+    pin.className = "awsFavPin";
 
     const tooltip = document.createElement("span");
-    tooltip.className = "tooltip";
+    tooltip.className = "awsFavPinTooltip";
     tooltip.append(document.createTextNode(serviceName));
 
     pin.append(favService);

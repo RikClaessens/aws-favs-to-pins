@@ -1,4 +1,4 @@
-.pin-style {
+.awsFavPin {
   text-decoration: none !important;
   color: #fff !important;
   font-family: "Amazon Ember", "Helvetica Neue", Roboto, Arial, sans-serif;
@@ -7,29 +7,26 @@
   display: flex;
 }
 
-.pin-style a i {
+.awsFavPin a i {
   border-radius: 5px;
 }
 
-.pin-style a {
+.awsFavPin a {
   padding-right: 4px;
 }
 
-.tooltip {
+.awsFavPinTooltip {
   display: none;
   position: absolute;
   top: 36px;
-  /* prettify */
   padding: 0.5em;
   color: #f2f2f2;
   background: #232f3e;
-  /* border: 0.1em solid #ff9900; */
-  /* round the corners */
-  border-radius: 0.5em;
-  /* prevent too wide tooltip */
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
   max-width: 10em;
 }
 
-.pin-style:hover .tooltip {
+.awsFavPin:hover .tooltip {
   display: block;
 }

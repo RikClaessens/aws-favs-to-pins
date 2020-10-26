@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Pick up AWS services from favorites list and make them into pins on the header as they should be!",
   "manifest_version": 2,
+  "author": "Rik Claessens",
   "content_scripts": [
     {
       "matches": [
@@ -11,12 +12,8 @@
         "https://*.console.amazonaws-us-gov.com/*",
         "https://*.console.amazonaws.cn/*"
       ],
-      "css": [
-        "styles.css"
-      ],
-      "js": [
-        "aws-pins.js"
-      ]
+      "css": ["styles.css"],
+      "js": ["aws-pins.js"]
     }
   ],
   "icons": {
