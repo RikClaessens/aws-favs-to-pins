@@ -36,7 +36,7 @@ function createPinsFromFavs() {
     pin.className = "awsFavPin";
 
     const tooltip = document.createElement("span");
-    tooltip.className = "awsFavPinTooltip";
+    tooltip.className = "awsFavPinTooltip tooltip";
     tooltip.append(document.createTextNode(serviceName));
 
     pin.append(favService);
